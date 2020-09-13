@@ -39,18 +39,21 @@ from utils import FeatureMapping, evaluation, cal_each_feature
 
 class MILDM():
     '''
-    MILIS model. This model select a representative instance from each bag and then map each bag to a feature space that is measured
-    by the similarity between the bag and the selected instances.
+    MILDM model. This model selects top-m most discriminative instances from each bag and perform bag feature mapping based on the top-m selected instances.
     
     Instance selection categories:
-    1. From all training bags.
-    2. From all positive training bags.
+    1. Global Instance Selection: Controlled by the paprameter glm = True
+        1.1 From all training bags. Controlled by the parameter pol = False
+        1.2 From all positive bags. Controlled by the parameter pol = True
+        
+    2. Local Instance Selection: Controlled by the paprameter glm = False
+        2.1 From all training bags. Controlled by the parameter pol = False
+        2.2 From all positive bags. Controlled by the parameter pol = True
 
-    Evaluation Steps of MILIS:
+    Steps of MILDM:
     1. instance selection
     2. Feature mapping
-    3. instance optimization - based on classification result.
-    4. classification
+    3. classification
     '''
 
     def __init__(self, glm, pol, sigma2):
