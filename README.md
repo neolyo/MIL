@@ -4,7 +4,7 @@ In this Repository, we have re-implemented the three most representative MIL mod
 For Simplicity, we use the forementioned three models to generate bag features and then evaluate their performance using 4 classical classifiers, namely, SVM, KNN, Naïve Bayes and MLP.
 
 ## 3rd Party package dependency
-Those models are implemented in Python 3.7 with Pandas, Numpy, Scipy and SKlearn packages.
+Those models are implemented in Python 3.7 with Pandas, Numpy, Scipy and Sklearn packages.
 
 ## Running & Evaluation
 This implementation could parse parameter from the command line and you can use this command to run a simple test on MILES model.
