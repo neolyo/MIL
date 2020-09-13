@@ -9,7 +9,7 @@ Those models are implemented in Python 3.7 with Pandas, Numpy, Scipy and SKlearn
 ## Running & Evaluation
 This implementation could parse parameter from the command line and you can use this command to run a simple test on MILES model.
 
->> python main.py --model MILES
+     python main.py --model MILES
 
 Specific Options
 
@@ -24,6 +24,4 @@ Specific Options
 | --pol        | bool      | False         | True, False         | select instance from all bags or positive bags only |
 
 If you find those models are useful for your research, please consider citing them.
-
-Please feel free to contact us if you need
 
