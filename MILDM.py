@@ -18,8 +18,6 @@ import scipy.sparse as sp
 from scipy.special import perm
 import math
 import statistics
-import tensorflow as tf
-from tensorflow import keras
 
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import ShuffleSplit
