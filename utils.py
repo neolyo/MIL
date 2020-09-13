@@ -20,8 +20,7 @@ from sklearn.metrics import accuracy_score, roc_auc_score, f1_score
 
 def load_data(dataset):
     '''
-    Available dataset names:
-    Musk1, Musk2, Elephant, Tiger, Eastwest, Westeast, Atom, Bond, AICV, Food, Ng9, Ng18, Web7,Web8
+    Load data from records
     '''
 
     # dataset stored in txt format
@@ -52,56 +51,6 @@ def load_data(dataset):
         filepath = "datasets/{}.csv".format(dataset)
         bags_features, bags_labels = load_csv_data(filepath)
     
-    # dataset stored in arff format
-    if dataset == "Eastwest":
-        filepath = "datasets/{}.arff".format(dataset)
-        bags_features, bags_labels = load_csv_data(filepath)
-    if dataset == "Westeast":
-        filepath = "datasets/{}.arff".format(dataset)
-        bags_features, bags_labels = load_csv_data(filepath)    
-    if dataset == "Atom":
-        filepath = "datasets/{}.arff".format(dataset)
-        bags_features, bags_labels = load_csv_data(filepath)
-    if dataset == "Bond":
-        filepath = "datasets/{}.arff".format(dataset)
-        bags_features, bags_labels = load_csv_data(filepath)
-    if dataset == "AICV":
-        filepath = "datasets/{}.arff".format(dataset)
-        bags_features, bags_labels = load_csv_data(filepath)
-    if dataset == "Food":
-        filepath = "datasets/{}.arff".format(dataset)
-        bags_features, bags_labels = load_csv_data(filepath)
-
-    return bags_features, bags_labels
-
-def load_arff_data(filepath):
-    bags_labels = {}
-    bags_names = {}
-    bags_features = {}
-    bag_id = 0
-    instances_features = []
-    with open(filepath) as fp:
-
-        for line in fp:
-
-            bag_name = line.strip().split(',')[0]
-            features = line.strip().split(',')[2:-1]
-            bag_label = line.strip().split(',')[-1]
-
-            if bag_name not in bags_names:
-                bags_names.update({bag_name:bag_id})
-                
-                if int(float(bag_label)) == 1:
-                    bags_labels.update({bags_names[bag_name]:1})
-                else:
-                    bags_labels.update({bags_names[bag_name]:-1})
-                instances = []
-                bag_id += 1
-
-            instances.append(features)
-            instances_features = np.array(instances,dtype=np.int32)
-            bags_features.update({bags_names[bag_name] : instances_features})
-
     return bags_features, bags_labels
 
 def load_csv_data(filepath):
